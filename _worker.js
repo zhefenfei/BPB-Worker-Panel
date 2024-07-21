@@ -16,7 +16,8 @@ const proxyIPs= ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'edgetunnel
 const defaultHttpPorts = ['80', '8080', '2052', '2082', '2086', '2095', '8880'];
 const defaultHttpsPorts = ['443', '8443', '2053', '2083', '2087', '2096'];
 
-let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
+//let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
+let proxyIP = 'edgetunnel.anycast.eu.org';
 
 let dohURL = 'https://cloudflare-dns.com/dns-query';
 
@@ -270,8 +271,6 @@ async function vlessOverWSHandler(request) {
 			if (hasError) {
 				// controller.error(message);
 				throw new Error(message); // cf seems has bug, controller.error will not end stream
-				// webSocket.close(1000, message);
-				return;
 			}
 
 			// If UDP and not DNS port, close it
